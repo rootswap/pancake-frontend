@@ -20,7 +20,7 @@ import {
   clear as clearToast,
   setBlock,
 } from './actions'
-import { State, Farm, Pool, BlockState, ProfileState, TeamsState, AchievementState, PriceState, Round } from './types'
+import { State, Farm, Pool, BlockState, ProfileState, TeamsState, AchievementState, PriceState } from './types'
 import { fetchProfile } from './profile'
 import { fetchTeam, fetchTeams } from './teams'
 import { fetchAchievements } from './achievements'
@@ -237,7 +237,7 @@ export const useInitialBlock = () => {
   
 // Predictions
 export const useInitializePredictions = () => {
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
     dispatch(initializePredictions())
@@ -255,6 +255,12 @@ export const useGetRounds = () => {
 export const useGetCurrentEpoch = () => {
   return useSelector((state: State) => state.predictions.currentEpoch)
 }
+
+export const useGetLiveRound = () => {
+  const { currentEpoch, rounds } = useSelector((state: State) => state.predictions)
+  return rounds[currentEpoch]
+}
+
 
 // Collectibles
 export const useGetCollectibles = () => {
