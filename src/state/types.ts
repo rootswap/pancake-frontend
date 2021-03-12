@@ -187,7 +187,7 @@ export interface RoundResponse {
 export interface Round {
   epoch: number
   startBlock: number
-  lockBlock: number
+  lockBlock?: number
   endBlock: number
   lockPrice: BigNumber
   closePrice: BigNumber
@@ -197,6 +197,10 @@ export interface Round {
   rewardBaseCalAmount: BigNumber
   rewardAmount: BigNumber
   oracleCalled: boolean
+}
+
+export interface RoundData {
+  [key: string]: Round
 }
 
 export interface PredictionsState {
