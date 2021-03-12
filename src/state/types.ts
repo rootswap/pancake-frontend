@@ -207,6 +207,7 @@ export interface PredictionsState {
   status: PredictionStatus
   currentEpoch: number
   isLoading: boolean
+  isHistoryPaneOpen: boolean
   rounds: {
     [key: string]: RoundResponse
   }
