@@ -27,7 +27,6 @@ import { fetchAchievements } from './achievements'
 import { fetchPrices } from './prices'
 import { fetchWalletNfts } from './collectibles'
 import { initializePredictions } from './predictions'
-import { transformRoundResponse } from './predictions/helpers'
 
 export const useFetchPublicData = () => {
   const dispatch = useAppDispatch()
@@ -254,30 +253,20 @@ export const useInitializePredictions = () => {
 }
 
 export const useGetRounds = () => {
-  const rounds = useSelector((state: State) => state.predictions.rounds)
-
-  return useMemo<RoundData>(() => {
-    return Object.keys(rounds).reduce((accum, epoch) => {
-      return {
-        ...accum,
-        [epoch]: transformRoundResponse(rounds[epoch]),
-      }
-    }, {})
-  }, [rounds])
+  return useSelector((state: State) => state.predictions.rounds)
 }
 
 export const useGetCurrentEpoch = () => {
   return useSelector((state: State) => state.predictions.currentEpoch)
 }
 
-export const useIsNextRound = (epoch: number) => {
-  const currentEpoch = useGetCurrentEpoch()
-  return epoch === currentEpoch + 1
+export const useGetIntervalBlocks = () => {
+  return useSelector((state: State) => state.predictions.intervalBlocks)
 }
 
 export const useGetLiveRound = () => {
   const { currentEpoch, rounds } = useSelector((state: State) => state.predictions)
-  return rounds[currentEpoch]
+  return rounds.find((round) => round.epoch === currentEpoch)
 }
 
 export const useGetPredictionsStatus = () => {
@@ -286,8 +275,9 @@ export const useGetPredictionsStatus = () => {
 
 export const useGetCurrentRound = () => {
   const currentEpoch = useGetCurrentEpoch()
-  const roundData = useSelector((state: State) => state.predictions.rounds)
-  return roundData[currentEpoch]
+  const rounds = useSelector((state: State) => state.predictions.rounds)
+
+  return rounds.find((round) => round.epoch === currentEpoch)
 }
 
 // Collectibles
