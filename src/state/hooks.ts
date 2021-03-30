@@ -296,6 +296,11 @@ export const useGetMinBetAmount = () => {
 
 export const useGetUserBetByRound = (id: string, account: string): Bet => {
   const round = useGetRound(id)
+
+  if (!account) {
+    return undefined
+  }
+
   return round.bets.find((bet) => bet.user.address.toLowerCase() === account.toLocaleLowerCase())
 }
 
