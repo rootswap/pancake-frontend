@@ -168,6 +168,7 @@ export enum PredictionStatus {
   INITIAL = 'initial',
   LIVE = 'live',
   PAUSED = 'paused',
+  ERROR = 'error',
 }
 
 export interface Round {
