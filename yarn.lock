@@ -2090,10 +2090,10 @@
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
 
-"@rootswap-libs/uikit@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@rootswap-libs/uikit/-/uikit-0.0.1.tgz#624094d83a607e897df00f41a1fa513317ed631f"
-  integrity sha512-F4lH7oDZUzkf55HlcsVy1bWFxoKjuOjzxC6YSZsBiiFWJA0C5VMFtZyR7y/cHtG15tgOhNDKVL6rYHjgsw69lw==
+"@rootswap-libs/uikit@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@rootswap-libs/uikit/-/uikit-0.0.2.tgz#3423b6e434415452265d177e9a798a43b7b98a12"
+  integrity sha512-ZP1XwvNQAayJNvJJhth0g42d+H2gLDUkbGeATFqYEtQ/33P5mOtsCAOy4CHLkyJ7DJAl4xOCQu0TSomXpisA2A==
   dependencies:
     "@popperjs/core" "^2.9.2"
     "@types/lodash" "^4.14.168"
