@@ -20,7 +20,28 @@ const config: MenuEntry[] = [
       },
     ],
   },
-  
+  {
+    label: 'More',
+    icon: 'MoreIcon',
+    items: [
+      {
+        label: 'Contact',
+        href: 'https://www.rootswap.com/contact-us',
+      },
+      {
+        label: 'Github',
+        href: 'https://github.com/rootswap',
+      },
+      {
+        label: 'Docs',
+        href: 'https://www.pancakeswap.com/docs',
+      },
+      {
+        label: 'Blog',
+        href: 'https://rootswap.medium.com',
+      },
+    ],
+  },
 ]
 
 export default config
